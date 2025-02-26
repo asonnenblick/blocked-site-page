@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blocked Site</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #d9534f;
+        }
+        p {
+            font-size: 18px;
+        }
+        .info {
+            margin-top: 20px;
+            text-align: left;
+        }
+        .info strong {
+            display: inline-block;
+            width: 120px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Access Blocked</h1>
+        <p>The website you are trying to access has been blocked.</p>
+        <div class="info">
+            <p><strong>Blocked Site:</strong> <span id="site"></span></p>
+            <p><strong>Category:</strong> <span id="category"></span></p>
+        </div>
+    </div>
+
+    <script>
+        // Get the URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+
+        // Get the site and category from the URL parameters
+        const site = urlParams.get('site') || "Unknown Site";
+        const category = urlParams.get('category') || "Unknown Category";
+
+        // Display the site and category
+        document.getElementById('site').textContent = decodeURIComponent(site);
+        document.getElementById('category').textContent = decodeURIComponent(category);
+    </script>
+</body>
+</html>
